@@ -17,6 +17,52 @@
 			<Id>1589224754980</Id>
 			<Name><![CDATA[Main]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
+			<StartupCode><![CDATA[// Inicializar target Lines
+targetLineEntrada = new TargetLine(this,
+					               SHAPE_DRAW_2D,
+					               true,
+					               250,
+					               100,
+					               new double[]{0, 0, 0},
+					               new double[]{0, 50, 0},
+					               green);
+					               
+targetLineSaida = new TargetLine(  this,
+					               SHAPE_DRAW_2D,
+					               true,
+					               600,
+					               100,
+					               new double[]{0, 0, 0},
+					               new double[]{0, 50, 0},
+					               green);		
+					               
+// Inicializar parede
+parede = new RectangularWall(this,
+                             SHAPE_DRAW_2D3D,
+                             true,
+                             360,
+                             70,
+                             0,
+                             150,
+                             130,
+                             0,
+                             2,
+                             20,
+                             WALL_FILL_SOLID,
+                             peru );
+                             
+//Criando e inicializando level
+myLevel = new Level(this, "myLevel", SHAPE_DRAW_2D3D, 0);
+
+//Adicionando objetos de animação ao level criado
+myLevel.addAll(targetLineEntrada, targetLineSaida, parede);
+
+//Inicialização do level
+myLevel.initialize();           
+
+//Adicionando o level à presentation
+presentation.add(myLevel);                
+                             					               			               ]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1589224754978</Id>
@@ -109,6 +155,56 @@
 			</ScaleRuler>
 			<CurrentLevel>1589224754979</CurrentLevel>
 			<ConnectionsId>1589224754975</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1596115003333</Id>
+					<Name><![CDATA[targetLineEntrada]]></Name>
+					<X>600</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[TargetLine]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1596115083346</Id>
+					<Name><![CDATA[targetLineSaida]]></Name>
+					<X>600</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[TargetLine]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1596115149179</Id>
+					<Name><![CDATA[parede]]></Name>
+					<X>600</X><Y>390</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[RectangularWall]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1596116422703</Id>
+					<Name><![CDATA[myLevel]]></Name>
+					<X>600</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[Level]]></Type>        
+					</Properties>
+				</Variable>
+			</Variables>
 			<Connectors>
 				<Connector>
 					<Id>1589224790201</Id>
@@ -226,7 +322,7 @@
 						<Parameter>
 							<Name><![CDATA[locationLine]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[targetLineChegada]]></Code>
+								<Code><![CDATA[targetLineEntrada]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -585,41 +681,6 @@
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
 			<Presentation>
-				<TargetLine>
-					<Id>1589230141801</Id>
-					<Name><![CDATA[targetLineSaida]]></Name>
-					<X>600</X><Y>100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-16744448</LineColor>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>50</Y></Point>
-					</Points>
-				</TargetLine>
-				<RectangleWall>
-					<Id>1589230207972</Id>
-					<Name><![CDATA[paredeRetangular]]></Name>
-					<X>360</X><Y>70</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-3308225</LineColor>
-					<LineWidth>2</LineWidth>
-					<LineMaterial>null</LineMaterial>
-					<FillingType>HATCHED_AREA</FillingType>
-					<ZHeight>20</ZHeight>
-					<Rotation>0.0</Rotation>
-					<Width>150</Width>
-					<Height>130</Height>
-				</RectangleWall>
 				<Text>
 					<Id>1596113617117</Id>
 					<Name><![CDATA[text]]></Name>
@@ -643,22 +704,6 @@
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
-				<TargetLine>
-					<Id>1596114565991</Id>
-					<Name><![CDATA[targetLineEntrada]]></Name>
-					<X>250</X><Y>100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-16744448</LineColor>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>50</Y></Point>
-					</Points>
-				</TargetLine>
 			</Presentation>
 
 				</Level>
