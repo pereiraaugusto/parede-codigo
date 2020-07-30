@@ -21,7 +21,7 @@
 targetLineEntrada = new TargetLine(this,
 					               SHAPE_DRAW_2D,
 					               true,
-					               250,
+					               350,
 					               100,
 					               new double[]{0, 0, 0},
 					               new double[]{0, 50, 0},
